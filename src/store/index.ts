@@ -41,8 +41,6 @@ export default new Vuex.Store({
           context.commit('setCities', { cities: data });
         }
       } catch (err: unknown) {
-        console.log('error', err);
-
         context.commit('setError', {
           error: 'Something was wrong. Try search again.',
         });
