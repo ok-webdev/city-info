@@ -10,7 +10,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: blinking 1s infinite linear;
+    animation: blinking 2s infinite ease-in-out;
   }
 
   @keyframes blinking {
@@ -18,8 +18,11 @@
       opacity: 0;
     }
 
+    50% {
+      opacity: .3;
+    }
     100% {
-      opacity: 1;
+      opacity: 0;
     }
   }
 </style>
