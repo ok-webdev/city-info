@@ -13,8 +13,8 @@ export default new Vuex.Store({
       return state.cities;
     },
     error(state) {
-      return state.error
-    }
+      return state.error;
+    },
   },
   mutations: {
     setCities(state, payload) {
@@ -33,7 +33,9 @@ export default new Vuex.Store({
         const data = await response.json();
         if (data.status || data.message) {
           context.commit('setCities', { cities: null });
-          context.commit('setError', { error: 'Something was wrong. Try search again.' });
+          context.commit('setError', {
+            error: 'Something was wrong. Try search again.',
+          });
         } else {
           context.commit('setError', { error: null });
           context.commit('setCities', { cities: data });
@@ -41,8 +43,13 @@ export default new Vuex.Store({
       } catch (err: unknown) {
         console.log('error', err);
 
-        context.commit('setError', { error: 'Something was wrong. Try search again.' });
+        context.commit('setError', {
+          error: 'Something was wrong. Try search again.',
+        });
       }
+    },
+    resetError(context) {
+      context.commit('setError', { error: null });
     },
   },
 });
