@@ -1,4 +1,23 @@
 :root {
+  --primary-color: #332deb;
+  --secondary-color: #818cab;
+  --additive-color: #42b983;
+  --warning-color: #b94242;
+  --font-color: #424242;
+  --button-text-color: #fff;
+  --bg-color: #fff;
+  --heading-color: #292922;
+}
+
+[data-theme='dark'] {
+  --primary-color: #9a97f3;
+  --secondary-color: #818cab;
+  --additive-color: #42b983;
+  --warning-color: #b94242;
+  --font-color: #e1e1ff;
+  --button-text-color: #fff;
+  --bg-color: #161625;
+  --heading-color: #818cab;
 }
 *,
 *::before,
@@ -12,15 +31,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: var(--font-color);
+  background-color: var(--bg-color)
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+}
 
+a {
+  color: var(--font-color);
+}
 
 // Transitions
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
