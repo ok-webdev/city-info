@@ -16,10 +16,10 @@ export default new Vuex.Store({
     citiesList(state): City[] | null {
       return state.cities;
     },
-    error(state) {
+    error(state):string|null {
       return state.error;
     },
-    theme(state) {
+    theme(state):string {
       return state.theme;
     },
   },
