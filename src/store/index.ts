@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import City from '../types/cities';
 
 Vue.use(Vuex);
 
@@ -12,7 +13,7 @@ export default new Vuex.Store({
     theme: 'light',
   },
   getters: {
-    citiesList(state) {
+    citiesList(state): City[] | null {
       return state.cities;
     },
     error(state) {
