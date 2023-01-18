@@ -19,8 +19,8 @@ export default new Vuex.Store({
       return state.error;
     },
     theme(state) {
-      return state.theme
-    }
+      return state.theme;
+    },
   },
   mutations: {
     setCities(state, payload) {
@@ -29,17 +29,15 @@ export default new Vuex.Store({
     setError(state, payload) {
       state.error = payload.error;
     },
-    toggleTheme (state, payload) {
-      console.log(payload);
-      
-      if(payload.theme) {
+    toggleTheme(state, payload) {
+      if (payload.theme) {
         state.theme = 'dark';
-      }else {
-        state.theme = 'light'
+      } else {
+        state.theme = 'light';
       }
       document.documentElement.setAttribute('data-theme', state.theme);
       localStorage.setItem('theme', state.theme);
-    }
+    },
   },
   actions: {
     async getCities(context, payload) {
