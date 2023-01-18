@@ -34,10 +34,10 @@
     min-width: 290px;
     border-collapse: collapse;
     &__header {
-      border-bottom: 2px solid var(--secondary-color);
+      border-bottom: 1px solid var(--secondary-color);
       &-country,
       &-capital {
-        padding: 10px;
+        padding: 10px 20px;
       }
       &-country {
         text-align: left;
@@ -69,7 +69,7 @@
         a{
           color: var(--additive-color)
         }
-        filter: brightness(.9)
+        filter: brightness(1.05)
       }
     }
   }

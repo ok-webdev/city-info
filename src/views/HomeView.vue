@@ -72,10 +72,10 @@
 <style scoped lang="scss">
   .home {
     &__cities {
-      margin: 20px auto;
+      margin: 10px auto;
     }
     &__error {
-      margin-top: 50px;
+      padding: 50px 0;
       color: var(--warning-color);
     }
   }

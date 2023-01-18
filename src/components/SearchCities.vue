@@ -1,7 +1,7 @@
 <template>
   <form class="search" @submit.prevent="submitHandler" @reset="resetHandler">
     <label class="search__label" for="search">
-      Type city name or part of city name
+      Type a city name or a part of a city name
     </label>
     <input
       class="search__input"
@@ -36,7 +36,7 @@
       },
       resetHandler() {
         this.searchValue = null;
-        this.$store.dispatch('resetError');
+        this.$store.commit('setError', {error: null});
       },
     },
   };
@@ -44,21 +44,32 @@
 
 <style scoped lang="scss">
   .search {
-    padding: 20px;
+    padding: 20px 0;
     &__label {
       display: block;
       font-size: 14px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      color: var(--heading-color);
     }
     &__input {
+      background-color: var(--bg-color);
+      color: var(--font-color);
+      font-family: inherit;
       width: 60%;
-      min-width: 220px;
-      padding: 5px 7px;
-      border: 1px solid #e7e7e7;
+      min-width: 290px;
+      padding: 10px 15px;
+      border: 1px solid var(--secondary-color);
       border-radius: 5px;
-      outline-color: #9c9c9c;
+      outline-color: var(--font-color);
+      &::placeholder{
+        color: var(--font-color);
+      }
       &:hover {
-        border-color: #9c9c9c;
+        border-color: var(--font-color);
+      }
+      &:-webkit-autofill{
+        -webkit-box-shadow: 0 0 0 1000px  var(--bg-color) inset;
+        -webkit-text-fill-color: var(--font-color);
       }
     }
     &__buttons {

@@ -76,7 +76,7 @@
         const currs = [];
         for (let key in this.city.currencies) {
           currs.push(
-            `${this.city.currencies[key].name}(${this.city.currencies[key].symbol})`
+            `${this.city.currencies[key].name}, ${this.city.currencies[key].symbol}`
           );
         }
         return currs;
@@ -99,7 +99,7 @@
   }
   .modal {
     width: 300px;
-    background-color: #fff;
+    background-color: var(--bg-color);
     position: absolute;
     top: 50%;
     left: 50%;
