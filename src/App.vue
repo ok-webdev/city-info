@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
   import TheHeader from './components/TheHeader.vue';
   export default {
     name: 'App',
@@ -19,4 +19,3 @@
   };
 </script>
 
-<style lang="scss"></style>
