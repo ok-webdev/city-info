@@ -3,10 +3,13 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
+const errorText = 'Something was wrong. Try to search again.';
+
 export default new Vuex.Store({
   state: {
     cities: null,
     error: null,
+    theme: 'light',
   },
   getters: {
     citiesList(state) {
@@ -15,6 +18,9 @@ export default new Vuex.Store({
     error(state) {
       return state.error;
     },
+    theme(state) {
+      return state.theme
+    }
   },
   mutations: {
     setCities(state, payload) {
@@ -23,6 +29,17 @@ export default new Vuex.Store({
     setError(state, payload) {
       state.error = payload.error;
     },
+    toggleTheme (state, payload) {
+      console.log(payload);
+      
+      if(payload.theme) {
+        state.theme = 'dark';
+      }else {
+        state.theme = 'light'
+      }
+      document.documentElement.setAttribute('data-theme', state.theme);
+      localStorage.setItem('theme', state.theme);
+    }
   },
   actions: {
     async getCities(context, payload) {
@@ -34,7 +51,7 @@ export default new Vuex.Store({
         if (data.status || data.message) {
           context.commit('setCities', { cities: null });
           context.commit('setError', {
-            error: 'Something was wrong. Try search again.',
+            error: errorText,
           });
         } else {
           context.commit('setError', { error: null });
@@ -42,12 +59,9 @@ export default new Vuex.Store({
         }
       } catch (err: unknown) {
         context.commit('setError', {
-          error: 'Something was wrong. Try search again.',
+          error: errorText,
         });
       }
-    },
-    resetError(context) {
-      context.commit('setError', { error: null });
     },
   },
 });
