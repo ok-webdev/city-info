@@ -4,12 +4,15 @@
       <th class="cities__header-country">Country</th>
       <th class="cities__header-capital">Capital</th>
     </tr>
-    <tr class="cities__info" v-for="(city, index) in cities" :key="index + Math.random()" @click.prevent="$emit('cityClick', { city })">
+    <tr
+      class="cities__info"
+      v-for="(city, index) in sortedCities"
+      :key="index + Math.random()"
+      @click.prevent="$emit('cityClick', { city })"
+    >
       <td class="cities__country">{{ city.name.official }}</td>
       <td class="cities__capital">
-        <a href="#">{{
-          city.capital[0]
-        }}</a>
+        <a href="#">{{ city.capital[0] }}</a>
       </td>
     </tr>
   </table>
@@ -23,6 +26,14 @@
         type: Array,
         required: false,
         default: null,
+      },
+    },
+    computed: {
+      sortedCities() {
+        let sortedCities = this.cities;
+        return sortedCities = this.cities
+          ? sortedCities.sort((a, b) => (a.capital[0] > b.capital[0] ? 1 : -1))
+          : null;
       },
     },
   };
@@ -56,20 +67,18 @@
     &__capital {
       width: 60%;
       text-align: right;
-     
-     
     }
-    &__info{
+    &__info {
       background-color: var(--bg-color);
       cursor: pointer;
       &:nth-child(odd) {
         background-color: var(--secondary-color);
       }
       &:hover {
-        a{
-          color: var(--additive-color)
+        a {
+          color: var(--additive-color);
         }
-        filter: brightness(1.05)
+        filter: brightness(1.05);
       }
     }
   }
