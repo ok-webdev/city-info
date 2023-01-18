@@ -1,5 +1,9 @@
 # city-info
 
+## Deployed
+
+[WATCH HERE](https://city-info-app.netlify.app/)
+
 ## Project description
 Cities info app.
 
