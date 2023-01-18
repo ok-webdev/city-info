@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <h2>Test task about cities info</h2>
+    <h2 class="about__second-title">Test task about cities info</h2>
 
     <p class="about__subtitle">Using VueJS, create single page application.</p>
     <p class="about__subtitle">Main goal – display city details screen.</p>
@@ -32,12 +32,20 @@
 
 <style scoped lang="scss">
   .about {
+    h1, h2{
+      margin-bottom: 10px;
+    }
+    &__second-title {
+      font-size: 20px;
+      margin-top: 5px;
+    }
     &__subtitle{
       font-size: 14px;
       margin-top: 5px;
     }
     &__description {
-      width: 300px;
+      max-width: 300px;
+      width: 80%;
       margin: 20px auto;
       &-title{
         font-weight: 600;
@@ -55,6 +63,7 @@
     &__sublist {
       font-size: 14px;
       margin-left: 20px;
+      margin-top: 3px;
       &-item{
         margin-bottom: 3px;
       }

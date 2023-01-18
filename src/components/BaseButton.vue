@@ -32,11 +32,12 @@
     font-family: inherit;
     font-size: 13px;
     font-weight: 600;
-    padding: 5px 12px;
+    padding: 6px 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     color: var(--button-text-color);
+    min-width: 80px;
     &_submit{
       background-color: var(--additive-color);
     }
