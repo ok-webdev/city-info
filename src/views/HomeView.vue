@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Search cities</h1>
+    <h1>Search for capitals</h1>
     <search-cities @submit="searchSubmit" />
     <cities-table
       class="home__cities"
