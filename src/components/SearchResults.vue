@@ -19,6 +19,6 @@
 
 <style scoped lang="scss">
   .details {
-    margin-left: 50%;
+    margin: 0 auto;
   }
 </style>
