@@ -13,7 +13,7 @@
 <script>
   import SearchResults from '@/components/SearchResults.vue';
   import SearchCities from '@/components/SearchCities.vue';
-  import TheLoader from '@/components/TheLoader.vue';
+  import TheLoader from '@/components/ui/TheLoader.vue';
   export default {
     name: 'HomeView',
     components: {

@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import BaseButton from './BaseButton.vue';
+  import BaseButton from './ui/BaseButton.vue';
   export default {
     name: 'Search-Cities',
     components: {
