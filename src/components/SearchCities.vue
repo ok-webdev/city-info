@@ -32,7 +32,6 @@
     methods: {
       submitHandler() {
         this.$emit('submit', { searchValue: this.searchValue });
-        this.searchValue = null;
       },
       resetHandler() {
         this.searchValue = null;
