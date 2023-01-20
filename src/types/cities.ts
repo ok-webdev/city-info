@@ -49,7 +49,7 @@ export default interface City {
       m: string;
     };
   };
-  flag: '🇱🇻';
+  flag: string;
   maps: {
     googleMaps: string;
     openStreetMaps: string;
