@@ -60,7 +60,7 @@
     name: 'Info-Modal',
     props: {
       city: {
-        type: Object,
+        type: [Object, null],
         required: true,
       },
     },
@@ -80,6 +80,13 @@
           );
         }
         return currs;
+      },
+    },
+    watch: {
+      city(val) {
+        val
+          ? (document.body.style.overflow = 'hidden')
+          : (document.body.style.overflow = 'visible');
       },
     },
   };
@@ -132,7 +139,7 @@
       }
       &-country {
         display: flex;
-        justify-content:end;
+        justify-content: end;
         align-items: center;
       }
       &-flag {

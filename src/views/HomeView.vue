@@ -34,10 +34,6 @@
         await this.$store.dispatch('getCities', { city: e.searchValue });
         this.loading = false;
       },
-      cityClickHandler(e) {
-        this.isModal = true;
-        this.currentCity = e.city;
-      },
     },
     computed: {
       citiesList() {
@@ -45,15 +41,6 @@
       },
       citiesError() {
         return this.$store.getters.error;
-      },
-    },
-    watch: {
-      isModal(val) {
-        if (val) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = 'visible';
-        }
       },
     },
   };

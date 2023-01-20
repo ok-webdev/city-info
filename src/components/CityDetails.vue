@@ -19,11 +19,12 @@
       city: {
         type: Object,
         required: false,
-        default: null
+        default: null,
       },
     },
     methods: {
       ...mapMutations(['setCurrentCity']),
     },
+    
   };
 </script>
