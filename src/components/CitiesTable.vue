@@ -8,7 +8,7 @@
       class="cities__info"
       v-for="(city, index) in sortedCities"
       :key="index + Math.random()"
-      @click.prevent="$emit('cityClick', { city })"
+      @click.prevent="setCurrentCity({ currentCity: city })"
     >
       <td class="cities__country">{{ city.name.official }}</td>
       <td class="cities__capital">
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+  import { mapMutations } from 'vuex';
   export default {
     name: 'Cities-List',
     props: {
@@ -31,10 +32,13 @@
     computed: {
       sortedCities() {
         let sortedCities = this.cities;
-        return sortedCities = this.cities
+        return (sortedCities = this.cities
           ? sortedCities.sort((a, b) => (a.capital[0] > b.capital[0] ? 1 : -1))
-          : null;
+          : null);
       },
+    },
+    methods: {
+      ...mapMutations(['setCurrentCity']),
     },
   };
 </script>

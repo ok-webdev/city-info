@@ -2,33 +2,23 @@
   <div class="home">
     <h1>Search for capitals</h1>
     <search-cities @submit="searchSubmit" />
-    <cities-table
-      class="home__cities"
-      v-if="citiesList && !citiesError && !loading"
-      :cities="citiesList"
-      @cityClick="cityClickHandler"
-    />
-    <p class="home__error" v-else-if="!citiesList && citiesError && !loading">
+    <search-results />
+    <p class="home__error" v-if="!citiesList && citiesError && !loading">
       {{ citiesError }}
     </p>
     <the-loader v-else-if="loading" />
-    <transition name="fade">
-      <info-modal v-if="isModal" @close="isModal = false" :city="currentCity" />
-    </transition>
   </div>
 </template>
 
 <script>
-  import CitiesTable from '@/components/CitiesTable.vue';
+  import SearchResults from '@/components/SearchResults.vue';
   import SearchCities from '@/components/SearchCities.vue';
-  import InfoModal from '@/components/InfoModal.vue';
   import TheLoader from '@/components/TheLoader.vue';
   export default {
     name: 'HomeView',
     components: {
-      CitiesTable,
+      SearchResults,
       SearchCities,
-      InfoModal,
       TheLoader,
     },
     data() {
@@ -71,9 +61,6 @@
 
 <style scoped lang="scss">
   .home {
-    &__cities {
-      margin: 10px auto;
-    }
     &__error {
       padding: 50px 0;
       color: var(--warning-color);

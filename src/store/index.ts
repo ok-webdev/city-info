@@ -9,6 +9,7 @@ const errorText = 'Something was wrong. Try to search again.';
 export default new Vuex.Store({
   state: {
     cities: null,
+    currentCity: null,
     error: null,
     theme: 'light',
   },
@@ -16,16 +17,22 @@ export default new Vuex.Store({
     citiesList(state): City[] | null {
       return state.cities;
     },
-    error(state):string|null {
+    currentCity(state) {
+      return state.currentCity;
+    },
+    error(state): string | null {
       return state.error;
     },
-    theme(state):string {
+    theme(state): string {
       return state.theme;
     },
   },
   mutations: {
     setCities(state, payload) {
       state.cities = payload.cities;
+    },
+    setCurrentCity(state, { currentCity }) {
+      state.currentCity = currentCity;
     },
     setError(state, payload) {
       state.error = payload.error;
